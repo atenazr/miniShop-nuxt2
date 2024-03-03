@@ -1,69 +1,86 @@
 # minishop-nuxt2
+miniShop is an open source project that tries to show the features and methods of using nuxt 2, type script, tailwind, etc,in different aspects of an online shop project.
+Currently, this project is not complete, but it will be updated over time.
 
-## Build Setup
+If you are using Nuxt 3, check this [link](https://github.com/atenazr/miniShop).
+
+## Features
+
+### [validation mixin](https://github.com/atenazr/miniShop-nuxt2/blob/nuxt-v2/mixins/validation.ts)
+By using options API and the [yup](https://github.com/jquense/yup) package, we create a validation mixin that declares values and errors objects to use in form validation. Functions validate and validateAll are used to evaluate single fields and the overall evaluation of a form, respectively.
+
+[usage](https://github.com/atenazr/miniShop-nuxt2/blob/nuxt-v2/pages/ContactUs.vue)
+
+#### next features 
+These features will be added soon: adding product store and configuration store management, styling and adding content to privacy page, connecting contactUs form to server, adding addProduct page,adding auth page and defining user access permissions,...
+ 
+
+## Setup
+
+Make sure to install the dependencies:
 
 ```bash
-# install dependencies
-$ yarn install
+# npm
+npm install
 
-# serve with hot reload at localhost:3000
-$ yarn dev
+# pnpm
+pnpm install
 
-# build for production and launch server
-$ yarn build
-$ yarn start
+# yarn
+yarn install
 
-# generate static project
-$ yarn generate
+# bun
+bun install
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+## Development Server
 
-## Special Directories
+Start the development server on `http://localhost:3000`:
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+```bash
+# npm
+npm run dev
 
-### `assets`
+# pnpm
+pnpm run dev
 
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
+# yarn
+yarn dev
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
+# bun
+bun run dev
+```
 
-### `components`
+## Production
 
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
+Build the application for production:
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
+```bash
+# npm
+npm run build
 
-### `layouts`
+# pnpm
+pnpm run build
 
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
+# yarn
+yarn build
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
+# bun
+bun run build
+```
 
+Locally preview production build:
 
-### `pages`
+```bash
+# npm
+npm run preview
 
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
+# pnpm
+pnpm run preview
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
+# yarn
+yarn preview
 
-### `plugins`
-
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
-
-### `static`
-
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+# bun
+bun run preview
+```

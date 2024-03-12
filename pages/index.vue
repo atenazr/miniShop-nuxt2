@@ -4,7 +4,8 @@ import type { IProduct } from "~/utils/types";
 import Spinner from "~/components/shared/Spinner.vue";
 import productCard from "~/components/products/productCard.vue"
 import GlobalBtn from "~/components/shared/GlobalBtn.vue";
-
+import { useProductsStore } from '~/store/product'
+import { mapActions } from 'pinia'
 export  default  Vue.extend({
   components:{
     Spinner,
@@ -13,16 +14,22 @@ export  default  Vue.extend({
   },
   data(){
     return{
-      loading:true,
+      loading:null as unknown,
       products:[] as IProduct[]
     }
   },
-  async created() {
-    // const [response,error] = await useProducts.loadProducts() as [IProduct[],any]
-    this.products = []
+
+  async fetch() {
+    this.loading = true
+    const [res,err] = await this.loadProducts() as [any,any]
+      if (res.length > 0) {
+        this.products = res
+      }
     this.loading = false
   },
+
   methods:{
+    ...mapActions(useProductsStore,['loadProducts']),
     deleteProduct(id:number){
       //     delete number
       console.log('id',id)
@@ -36,9 +43,6 @@ export  default  Vue.extend({
     }
   }
 })
-
-
-
 </script>
 
 <style lang="scss">
@@ -56,7 +60,7 @@ export  default  Vue.extend({
           <GlobalBtn class="text-base lg:!text-xl" text="Add Product" @clickBtn="addProduct" ></GlobalBtn>
         </div>
       </div>
-          <div v-if="!!products" class="w-full flex justify-start items-start flex-wrap">
+          <div v-if="products.length > 0 " class="w-full flex justify-start items-start flex-wrap">
               <productCard
               v-for="(product,index) in products"
               :key="index"

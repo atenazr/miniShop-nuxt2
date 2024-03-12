@@ -2,8 +2,8 @@
   <div class="flex items-center">
       <div dir="ltr" class="flex items-end">
             <span v-for="score in fullStars" :key="score" class="text-xs lg:text-base material-icons">star</span>
-            <span v-for="score in halfStars" :key="score" class="text-xs lg:text-base material-symbols-outlined">star_half</span>
-            <span v-for="score in emptyStars" :key="score" class="text-xs lg:text-base material-symbols-outlined">star</span>
+            <span v-for="score in halfStars" :key="score+10" class="text-xs lg:text-base material-symbols-outlined">star_half</span>
+            <span v-for="score in emptyStars" :key="score+20" class="text-xs lg:text-base material-symbols-outlined">star</span>
       </div>
       <div class="text-xs text-secondary-gray mx-2">
           {{ '('+countRate+')' }}
@@ -34,7 +34,7 @@ export default Vue.extend({
       return x >= (1/2) ? 1 : 0
     },
     emptyStars():number{
-      return 5 - this.fullStars() - this.halfStars()
+      return 5 - this.fullStars - this.halfStars
     }
   }
 })

@@ -12,7 +12,8 @@ export  default  Vue.extend({
   <div class="">
     <Navbar></Navbar>
     <section class="pt-6 lg:pt-0 ">
-      <Nuxt />
+          <Nuxt />
+
     </section>
   </div>
 </template>

@@ -10,3 +10,12 @@
 .btn-primary{
     @apply my-1 md:my-5 text-center text-xs md:text-sm lg:text-base w-full text-dark-gray border border-dark-gray cursor-pointer hover:opacity-90 transition-colors py-1 lg:py-2 px-1.5 lg:px-2.5
 }
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.2s;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
